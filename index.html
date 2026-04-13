@@ -199,19 +199,31 @@
             padding: calc(72px + var(--space-3xl)) 0 var(--space-3xl);
             position: relative;
             overflow: hidden;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('https://images.unsplash.com/photo-1558904541-efa843a96f01?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            opacity: 0.2;
+            pointer-events: none;
         }
         .hero::before {
             content: '';
             position: absolute;
             inset: 0;
             background:
-                radial-gradient(circle at 20% 80%, rgba(126,217,87,0.15) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(126,217,87,0.1) 0%, transparent 50%);
+                linear-gradient(135deg, var(--color-primary-dark) 40%, transparent 100%),
+                radial-gradient(circle at 20% 80%, rgba(126,217,87,0.15) 0%, transparent 50%);
+            z-index: 1;
             pointer-events: none;
         }
         .hero-content {
             position: relative;
-            z-index: 1;
+            z-index: 2;
             max-width: 720px;
         }
         .hero-label {
@@ -287,16 +299,24 @@
             gap: var(--space-md);
         }
         .service-card {
-            background: var(--color-off-white);
+            background: var(--color-card-bg);
             border: 1px solid var(--color-border);
             border-radius: var(--radius);
-            padding: var(--space-lg);
+            overflow: hidden;
             transition: all 0.2s ease;
         }
         .service-card:hover {
             border-color: var(--color-primary);
             transform: translateY(-2px);
             box-shadow: 0 8px 24px rgba(58, 125, 68, 0.08);
+        }
+        .service-card-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+        .service-card-body {
+            padding: var(--space-md) var(--space-md) var(--space-lg);
         }
         .service-icon {
             width: 48px;
@@ -354,6 +374,51 @@
         .why-card p {
             font-size: 15px;
             color: var(--color-text-light);
+        }
+
+        /* ===== PORTFOLIO GALLERY ===== */
+        .portfolio { background: var(--color-white); }
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--space-sm);
+        }
+        .portfolio-item {
+            position: relative;
+            border-radius: var(--radius);
+            overflow: hidden;
+            aspect-ratio: 1;
+        }
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        .portfolio-item:hover img {
+            transform: scale(1.05);
+        }
+        .portfolio-item-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(26,46,18,0.7) 0%, transparent 50%);
+            display: flex;
+            align-items: flex-end;
+            padding: var(--space-sm);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .portfolio-item:hover .portfolio-item-overlay {
+            opacity: 1;
+        }
+        .portfolio-item-overlay span {
+            color: var(--color-white);
+            font-size: 14px;
+            font-weight: 600;
+        }
+        .portfolio-item:first-child {
+            grid-column: span 2;
+            grid-row: span 2;
         }
 
         /* ===== PROCESS ===== */
@@ -450,16 +515,26 @@
             position: relative;
             overflow: hidden;
         }
+        .cta-band::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('https://images.unsplash.com/photo-1558904541-efa843a96f01?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            opacity: 0.15;
+            pointer-events: none;
+        }
         .cta-band::before {
             content: '';
             position: absolute;
             inset: 0;
-            background: radial-gradient(circle at 50% 50%, rgba(126,217,87,0.1) 0%, transparent 60%);
+            background: linear-gradient(135deg, var(--color-primary-dark) 30%, var(--color-primary-darker) 100%);
+            z-index: 1;
+            opacity: 0.9;
             pointer-events: none;
         }
         .cta-band-content {
             position: relative;
-            z-index: 1;
+            z-index: 2;
         }
         .cta-band h2 {
             font-family: var(--font-heading);
@@ -586,6 +661,15 @@
                 grid-template-columns: 1fr;
             }
 
+            .portfolio-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .portfolio-item:first-child {
+                grid-column: span 2;
+                grid-row: span 1;
+                aspect-ratio: 16/9;
+            }
+
             .process-steps::before { display: none; }
 
             .trust-bar-inner { gap: var(--space-md); }
@@ -682,46 +766,64 @@
             </div>
             <div class="services-grid">
                 <div class="service-card fade-in">
-                    <div class="service-icon">
-                        <i data-lucide="pencil-ruler"></i>
+                    <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=600&q=80" alt="Landscape design plan on paper" class="service-card-img" loading="lazy">
+                    <div class="service-card-body">
+                        <div class="service-icon">
+                            <i data-lucide="pencil-ruler"></i>
+                        </div>
+                        <h3>Landscape Design</h3>
+                        <p>Custom garden designs that work with your space, lifestyle, and budget. Practical layouts that look great and last.</p>
                     </div>
-                    <h3>Landscape Design</h3>
-                    <p>Custom garden designs that work with your space, lifestyle, and budget. Practical layouts that look great and last.</p>
                 </div>
                 <div class="service-card fade-in">
-                    <div class="service-icon">
-                        <i data-lucide="hammer"></i>
+                    <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=600&q=80" alt="Garden construction with stone retaining walls" class="service-card-img" loading="lazy">
+                    <div class="service-card-body">
+                        <div class="service-icon">
+                            <i data-lucide="hammer"></i>
+                        </div>
+                        <h3>Garden Construction</h3>
+                        <p>Retaining walls, garden beds, turf installation, and structural work — built solid, built to last.</p>
                     </div>
-                    <h3>Garden Construction</h3>
-                    <p>Retaining walls, garden beds, turf installation, and structural work — built solid, built to last.</p>
                 </div>
                 <div class="service-card fade-in">
-                    <div class="service-icon">
-                        <i data-lucide="scissors"></i>
+                    <img src="https://images.unsplash.com/photo-1592417817098-8fd3d9eb14a5?auto=format&fit=crop&w=600&q=80" alt="Freshly mowed lawn with stripes" class="service-card-img" loading="lazy">
+                    <div class="service-card-body">
+                        <div class="service-icon">
+                            <i data-lucide="scissors"></i>
+                        </div>
+                        <h3>Lawn Mowing & Maintenance</h3>
+                        <p>Regular mowing, edging, and garden maintenance to keep your property looking sharp, all year round.</p>
                     </div>
-                    <h3>Lawn Mowing & Maintenance</h3>
-                    <p>Regular mowing, edging, and garden maintenance to keep your property looking sharp, all year round.</p>
                 </div>
                 <div class="service-card fade-in">
-                    <div class="service-icon">
-                        <i data-lucide="layers"></i>
+                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=600&q=80" alt="Stone retaining wall in backyard" class="service-card-img" loading="lazy">
+                    <div class="service-card-body">
+                        <div class="service-icon">
+                            <i data-lucide="layers"></i>
+                        </div>
+                        <h3>Retaining Walls</h3>
+                        <p>Timber, concrete, and stone retaining walls for sloped blocks, garden tiers, and boundary definition.</p>
                     </div>
-                    <h3>Retaining Walls</h3>
-                    <p>Timber, concrete, and stone retaining walls for sloped blocks, garden tiers, and boundary definition.</p>
                 </div>
                 <div class="service-card fade-in">
-                    <div class="service-icon">
-                        <i data-lucide="footprints"></i>
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80" alt="Paved pathway through garden" class="service-card-img" loading="lazy">
+                    <div class="service-card-body">
+                        <div class="service-icon">
+                            <i data-lucide="footprints"></i>
+                        </div>
+                        <h3>Paving & Paths</h3>
+                        <p>Driveways, pathways, and entertaining areas — practical surfaces that add value and function to your property.</p>
                     </div>
-                    <h3>Paving & Paths</h3>
-                    <p>Driveways, pathways, and entertaining areas — practical surfaces that add value and function to your property.</p>
                 </div>
                 <div class="service-card fade-in">
-                    <div class="service-icon">
-                        <i data-lucide="leaf"></i>
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?auto=format&fit=crop&w=600&q=80" alt="Garden cleanup with wheelbarrow and tools" class="service-card-img" loading="lazy">
+                    <div class="service-card-body">
+                        <div class="service-icon">
+                            <i data-lucide="leaf"></i>
+                        </div>
+                        <h3>Garden Clean-ups</h3>
+                        <p>Overgrown yard? We'll clear, tidy, and restore your outdoor space so you can actually use it again.</p>
                     </div>
-                    <h3>Garden Clean-ups</h3>
-                    <p>Overgrown yard? We'll clear, tidy, and restore your outdoor space so you can actually use it again.</p>
                 </div>
             </div>
         </div>
@@ -749,6 +851,40 @@
                     <div class="why-number">03</div>
                     <h3>Year-Round Reliability</h3>
                     <p>Four seasons, every season. From summer maintenance to winter prep — we're here when your garden needs us.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PORTFOLIO GALLERY ===== -->
+    <!-- [PLACEHOLDER] Replace stock photos with actual project photos from client -->
+    <section class="portfolio section-padding">
+        <div class="container">
+            <div class="text-center fade-in">
+                <span class="section-label">Our Work</span>
+                <h2 class="section-heading">Recent Projects</h2>
+                <p class="section-subheading">From backyard transformations to regular maintenance — here's a look at what we do.</p>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-item fade-in">
+                    <img src="https://images.unsplash.com/photo-1584738766473-61c083514bf4?auto=format&fit=crop&w=800&q=80" alt="Landscaped backyard with lawn and garden beds" loading="lazy">
+                    <div class="portfolio-item-overlay"><span>Backyard Transformation</span></div>
+                </div>
+                <div class="portfolio-item fade-in">
+                    <img src="https://images.unsplash.com/photo-1598902108854-d1446671c253?auto=format&fit=crop&w=400&q=80" alt="New turf installation" loading="lazy">
+                    <div class="portfolio-item-overlay"><span>Turf Installation</span></div>
+                </div>
+                <div class="portfolio-item fade-in">
+                    <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=400&q=80" alt="Retaining wall and paving" loading="lazy">
+                    <div class="portfolio-item-overlay"><span>Retaining Wall & Paving</span></div>
+                </div>
+                <div class="portfolio-item fade-in">
+                    <img src="https://images.unsplash.com/photo-1591857177580-dc82b9ac4e1e?auto=format&fit=crop&w=400&q=80" alt="Garden bed planting" loading="lazy">
+                    <div class="portfolio-item-overlay"><span>Garden Bed Planting</span></div>
+                </div>
+                <div class="portfolio-item fade-in">
+                    <img src="https://images.unsplash.com/photo-1564429238961-5e2964087c9a?auto=format&fit=crop&w=400&q=80" alt="Paved outdoor entertaining area" loading="lazy">
+                    <div class="portfolio-item-overlay"><span>Outdoor Entertaining</span></div>
                 </div>
             </div>
         </div>
