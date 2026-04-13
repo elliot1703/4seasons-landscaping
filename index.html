@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4Seasons Landscaping & Mowing — Western Sydney Landscaping Professionals</title>
+    <meta name="description" content="Professional landscaping, garden construction, and lawn maintenance across Western Sydney. No shortcuts. No patch jobs. Just quality workmanship. Call 0432 949 900.">
+
+    <!-- OG Tags -->
+    <meta property="og:title" content="4Seasons Landscaping & Mowing — Western Sydney">
+    <meta property="og:description" content="Professional landscaping, garden construction, and lawn maintenance across Western Sydney.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="logo.jpeg">
+    <meta name="theme-color" content="#3A7D44">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+
+    <style>
+        /* ===== CSS VARIABLES (White-label rebrand: swap these) ===== */
+        :root {
+            --color-primary: #7ED957;
+            --color-primary-dark: #3A7D44;
+            --color-primary-darker: #2D6135;
+            --color-white: #FFFFFF;
+            --color-off-white: #F7FAF5;
+            --color-text: #1A2E12;
+            --color-text-light: #4A6340;
+            --color-text-muted: #6B8560;
+            --color-border: #D4E5CD;
+            --color-card-bg: #FFFFFF;
+            --color-hero-bg: #3A7D44;
+            --color-hero-text: #FFFFFF;
+
+            --font-heading: 'Plus Jakarta Sans', sans-serif;
+            --font-body: 'Inter', sans-serif;
+
+            --space-xs: 8px;
+            --space-sm: 16px;
+            --space-md: 24px;
+            --space-lg: 32px;
+            --space-xl: 48px;
+            --space-2xl: 64px;
+            --space-3xl: 80px;
+            --space-4xl: 120px;
+
+            --max-width: 1200px;
+            --radius: 12px;
+            --radius-sm: 8px;
+        }
+
+        /* ===== RESET ===== */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+        body {
+            font-family: var(--font-body);
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--color-text);
+            background: var(--color-white);
+        }
+        img { max-width: 100%; height: auto; display: block; }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        /* ===== UTILITIES ===== */
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 var(--space-md);
+        }
+        .section-padding {
+            padding: var(--space-3xl) 0;
+        }
+        .text-center { text-align: center; }
+
+        .section-label {
+            display: inline-block;
+            font-family: var(--font-body);
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--color-primary-dark);
+            margin-bottom: var(--space-sm);
+        }
+        .section-heading {
+            font-family: var(--font-heading);
+            font-size: clamp(28px, 5vw, 40px);
+            font-weight: 800;
+            line-height: 1.15;
+            color: var(--color-text);
+            margin-bottom: var(--space-sm);
+        }
+        .section-subheading {
+            font-size: 18px;
+            color: var(--color-text-light);
+            max-width: 600px;
+            margin: 0 auto var(--space-xl);
+        }
+
+        /* ===== BUTTONS ===== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-xs);
+            padding: 14px 28px;
+            border-radius: var(--radius-sm);
+            font-family: var(--font-body);
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s ease;
+        }
+        .btn-primary {
+            background: var(--color-primary);
+            color: var(--color-primary-darker);
+        }
+        .btn-primary:hover {
+            background: #6EC847;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 16px rgba(126, 217, 87, 0.4);
+        }
+        .btn-outline {
+            background: transparent;
+            color: var(--color-white);
+            border: 2px solid rgba(255,255,255,0.4);
+        }
+        .btn-outline:hover {
+            border-color: var(--color-white);
+            background: rgba(255,255,255,0.1);
+        }
+        .btn-dark {
+            background: var(--color-primary-dark);
+            color: var(--color-white);
+        }
+        .btn-dark:hover {
+            background: var(--color-primary-darker);
+            transform: translateY(-1px);
+        }
+
+        /* ===== NAVIGATION ===== */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: var(--color-primary-dark);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            transition: background 0.3s ease;
+        }
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 72px;
+        }
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+        .nav-logo img {
+            height: 44px;
+            width: auto;
+            border-radius: 6px;
+        }
+        .nav-logo span {
+            font-family: var(--font-heading);
+            font-weight: 800;
+            font-size: 18px;
+            color: var(--color-white);
+        }
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+        }
+        .nav-phone {
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+            color: var(--color-white);
+            font-weight: 500;
+            font-size: 15px;
+        }
+        .nav-phone i { width: 18px; height: 18px; }
+
+        /* ===== HERO ===== */
+        .hero {
+            background: var(--color-hero-bg);
+            padding: calc(72px + var(--space-3xl)) 0 var(--space-3xl);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 20% 80%, rgba(126,217,87,0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(126,217,87,0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 720px;
+        }
+        .hero-label {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-xs);
+            background: rgba(126,217,87,0.15);
+            border: 1px solid rgba(126,217,87,0.3);
+            border-radius: 100px;
+            padding: 6px 16px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--color-primary);
+            margin-bottom: var(--space-md);
+            letter-spacing: 0.5px;
+        }
+        .hero h1 {
+            font-family: var(--font-heading);
+            font-size: clamp(36px, 6vw, 56px);
+            font-weight: 800;
+            line-height: 1.08;
+            color: var(--color-hero-text);
+            margin-bottom: var(--space-md);
+        }
+        .hero h1 em {
+            font-style: normal;
+            color: var(--color-primary);
+        }
+        .hero p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: var(--space-lg);
+            max-width: 540px;
+        }
+        .hero-actions {
+            display: flex;
+            gap: var(--space-sm);
+            flex-wrap: wrap;
+        }
+
+        /* ===== TRUST BAR ===== */
+        .trust-bar {
+            background: var(--color-off-white);
+            border-bottom: 1px solid var(--color-border);
+            padding: var(--space-lg) 0;
+        }
+        .trust-bar-inner {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: var(--space-xl);
+        }
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--color-text-light);
+        }
+        .trust-item i {
+            width: 20px;
+            height: 20px;
+            color: var(--color-primary-dark);
+        }
+
+        /* ===== SERVICES ===== */
+        .services { background: var(--color-white); }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-md);
+        }
+        .service-card {
+            background: var(--color-off-white);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius);
+            padding: var(--space-lg);
+            transition: all 0.2s ease;
+        }
+        .service-card:hover {
+            border-color: var(--color-primary);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(58, 125, 68, 0.08);
+        }
+        .service-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--color-primary-dark);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: var(--space-sm);
+        }
+        .service-icon i {
+            width: 24px;
+            height: 24px;
+            color: var(--color-primary);
+        }
+        .service-card h3 {
+            font-family: var(--font-heading);
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: var(--space-xs);
+            color: var(--color-text);
+        }
+        .service-card p {
+            font-size: 14px;
+            color: var(--color-text-muted);
+            line-height: 1.5;
+        }
+
+        /* ===== WHY CHOOSE US ===== */
+        .why { background: var(--color-off-white); }
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-lg);
+        }
+        .why-card {
+            text-align: center;
+            padding: var(--space-lg);
+        }
+        .why-number {
+            font-family: var(--font-heading);
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--color-primary);
+            line-height: 1;
+            margin-bottom: var(--space-sm);
+        }
+        .why-card h3 {
+            font-family: var(--font-heading);
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: var(--space-xs);
+        }
+        .why-card p {
+            font-size: 15px;
+            color: var(--color-text-light);
+        }
+
+        /* ===== PROCESS ===== */
+        .process { background: var(--color-white); }
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-lg);
+            position: relative;
+        }
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 36px;
+            left: calc(16.66% + 24px);
+            right: calc(16.66% + 24px);
+            height: 2px;
+            background: var(--color-border);
+        }
+        .process-step {
+            text-align: center;
+            position: relative;
+        }
+        .step-number {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            background: var(--color-primary-dark);
+            color: var(--color-white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-heading);
+            font-size: 28px;
+            font-weight: 800;
+            margin: 0 auto var(--space-md);
+            position: relative;
+            z-index: 1;
+        }
+        .process-step h3 {
+            font-family: var(--font-heading);
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: var(--space-xs);
+        }
+        .process-step p {
+            font-size: 15px;
+            color: var(--color-text-light);
+            max-width: 280px;
+            margin: 0 auto;
+        }
+
+        /* ===== TESTIMONIALS ===== */
+        .testimonials { background: var(--color-off-white); }
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-md);
+        }
+        .testimonial-card {
+            background: var(--color-card-bg);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius);
+            padding: var(--space-lg);
+        }
+        .testimonial-stars {
+            color: #F5A623;
+            font-size: 18px;
+            margin-bottom: var(--space-sm);
+            letter-spacing: 2px;
+        }
+        .testimonial-card blockquote {
+            font-size: 15px;
+            line-height: 1.6;
+            color: var(--color-text-light);
+            margin-bottom: var(--space-sm);
+            font-style: italic;
+        }
+        .testimonial-author {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--color-text);
+        }
+        .testimonial-location {
+            font-size: 13px;
+            color: var(--color-text-muted);
+        }
+
+        /* ===== CTA BAND ===== */
+        .cta-band {
+            background: var(--color-primary-dark);
+            padding: var(--space-3xl) 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-band::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(126,217,87,0.1) 0%, transparent 60%);
+            pointer-events: none;
+        }
+        .cta-band-content {
+            position: relative;
+            z-index: 1;
+        }
+        .cta-band h2 {
+            font-family: var(--font-heading);
+            font-size: clamp(28px, 5vw, 40px);
+            font-weight: 800;
+            color: var(--color-white);
+            margin-bottom: var(--space-sm);
+        }
+        .cta-band p {
+            font-size: 18px;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: var(--space-lg);
+        }
+        .cta-band .cta-actions {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-sm);
+            flex-wrap: wrap;
+        }
+        .cta-phone-big {
+            font-family: var(--font-heading);
+            font-size: clamp(24px, 4vw, 36px);
+            font-weight: 800;
+            color: var(--color-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-md);
+        }
+        .cta-phone-big i { width: 32px; height: 32px; }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--color-text);
+            color: rgba(255,255,255,0.6);
+            padding: var(--space-xl) 0 var(--space-lg);
+        }
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: var(--space-lg);
+        }
+        .footer-brand {
+            max-width: 320px;
+        }
+        .footer-brand img {
+            height: 40px;
+            border-radius: 6px;
+            margin-bottom: var(--space-sm);
+        }
+        .footer-brand p {
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        .footer-contact h4 {
+            font-family: var(--font-heading);
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--color-white);
+            margin-bottom: var(--space-sm);
+        }
+        .footer-contact a {
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+            font-size: 14px;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: var(--space-xs);
+            transition: color 0.2s;
+        }
+        .footer-contact a:hover { color: var(--color-primary); }
+        .footer-contact i { width: 16px; height: 16px; }
+        .footer-areas h4 {
+            font-family: var(--font-heading);
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--color-white);
+            margin-bottom: var(--space-sm);
+        }
+        .footer-areas ul {
+            columns: 2;
+            gap: var(--space-lg);
+        }
+        .footer-areas li {
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+        .footer-bottom {
+            margin-top: var(--space-lg);
+            padding-top: var(--space-md);
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 13px;
+            text-align: center;
+        }
+
+        /* ===== SCROLL ANIMATIONS ===== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .section-padding { padding: var(--space-xl) 0; }
+
+            .hero { padding: calc(72px + var(--space-xl)) 0 var(--space-xl); }
+            .hero h1 { font-size: 32px; }
+
+            .nav-phone span { display: none; }
+            .nav-logo span { font-size: 15px; }
+
+            .services-grid,
+            .why-grid,
+            .process-steps,
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-steps::before { display: none; }
+
+            .trust-bar-inner { gap: var(--space-md); }
+
+            .footer-inner { flex-direction: column; }
+            .footer-areas ul { columns: 2; }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+            .testimonial-grid { grid-template-columns: repeat(2, 1fr); }
+            .testimonial-grid .testimonial-card:last-child {
+                grid-column: 1 / -1;
+                max-width: 50%;
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== NAVIGATION ===== -->
+    <nav class="nav">
+        <div class="container nav-inner">
+            <a href="#" class="nav-logo">
+                <img src="logo.jpeg" alt="4Seasons Landscaping & Mowing">
+                <span>4Seasons</span>
+            </a>
+            <div class="nav-actions">
+                <a href="tel:+61432949900" class="nav-phone">
+                    <i data-lucide="phone"></i>
+                    <span>0432 949 900</span>
+                </a>
+                <a href="#quote" class="btn btn-primary">Get a Free Quote</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-label">
+                    <i data-lucide="map-pin" style="width:14px;height:14px"></i>
+                    Serving Western Sydney
+                </div>
+                <h1>Quality Landscaping.<br><em>No Shortcuts.</em></h1>
+                <p>From complete garden transformations to regular lawn maintenance — we deliver workmanship you can trust, year-round. Locally owned and operated in Western Sydney.</p>
+                <div class="hero-actions">
+                    <a href="#quote" class="btn btn-primary">
+                        Get a Free Quote
+                        <i data-lucide="arrow-right" style="width:18px;height:18px"></i>
+                    </a>
+                    <a href="tel:+61432949900" class="btn btn-outline">
+                        <i data-lucide="phone" style="width:18px;height:18px"></i>
+                        0432 949 900
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TRUST BAR ===== -->
+    <div class="trust-bar">
+        <div class="container">
+            <div class="trust-bar-inner">
+                <div class="trust-item">
+                    <i data-lucide="shield-check"></i>
+                    Fully Insured
+                </div>
+                <div class="trust-item">
+                    <i data-lucide="clock"></i>
+                    Year-Round Service
+                </div>
+                <div class="trust-item">
+                    <i data-lucide="map-pin"></i>
+                    Locally Owned & Operated
+                </div>
+                <div class="trust-item">
+                    <i data-lucide="thumbs-up"></i>
+                    Free Quotes — No Obligation
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== SERVICES ===== -->
+    <section class="services section-padding" id="services">
+        <div class="container">
+            <div class="text-center fade-in">
+                <span class="section-label">What We Do</span>
+                <h2 class="section-heading">Landscaping & Maintenance<br>Done Right</h2>
+                <p class="section-subheading">Whether you need a full outdoor transformation or regular upkeep, we handle it all — from design through to ongoing care.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i data-lucide="pencil-ruler"></i>
+                    </div>
+                    <h3>Landscape Design</h3>
+                    <p>Custom garden designs that work with your space, lifestyle, and budget. Practical layouts that look great and last.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i data-lucide="hammer"></i>
+                    </div>
+                    <h3>Garden Construction</h3>
+                    <p>Retaining walls, garden beds, turf installation, and structural work — built solid, built to last.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i data-lucide="scissors"></i>
+                    </div>
+                    <h3>Lawn Mowing & Maintenance</h3>
+                    <p>Regular mowing, edging, and garden maintenance to keep your property looking sharp, all year round.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i data-lucide="layers"></i>
+                    </div>
+                    <h3>Retaining Walls</h3>
+                    <p>Timber, concrete, and stone retaining walls for sloped blocks, garden tiers, and boundary definition.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i data-lucide="footprints"></i>
+                    </div>
+                    <h3>Paving & Paths</h3>
+                    <p>Driveways, pathways, and entertaining areas — practical surfaces that add value and function to your property.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i data-lucide="leaf"></i>
+                    </div>
+                    <h3>Garden Clean-ups</h3>
+                    <p>Overgrown yard? We'll clear, tidy, and restore your outdoor space so you can actually use it again.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== WHY CHOOSE US ===== -->
+    <section class="why section-padding">
+        <div class="container">
+            <div class="text-center fade-in">
+                <span class="section-label">Why 4Seasons</span>
+                <h2 class="section-heading">No Patch Jobs. Just Results.</h2>
+            </div>
+            <div class="why-grid">
+                <div class="why-card fade-in">
+                    <div class="why-number">01</div>
+                    <h3>Quality Workmanship</h3>
+                    <p>No shortcuts, no quick fixes. We do the job properly the first time — because patch jobs cost more in the long run.</p>
+                </div>
+                <div class="why-card fade-in">
+                    <div class="why-number">02</div>
+                    <h3>Local to Western Sydney</h3>
+                    <p>We live and work here. We understand the soil, the climate, and what grows well in this part of Sydney.</p>
+                </div>
+                <div class="why-card fade-in">
+                    <div class="why-number">03</div>
+                    <h3>Year-Round Reliability</h3>
+                    <p>Four seasons, every season. From summer maintenance to winter prep — we're here when your garden needs us.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PROCESS ===== -->
+    <section class="process section-padding">
+        <div class="container">
+            <div class="text-center fade-in">
+                <span class="section-label">How It Works</span>
+                <h2 class="section-heading">Three Steps to a Better Yard</h2>
+                <p class="section-subheading">Getting started is simple. We make the process straightforward so you know exactly what to expect.</p>
+            </div>
+            <div class="process-steps">
+                <div class="process-step fade-in">
+                    <div class="step-number">1</div>
+                    <h3>Free Quote</h3>
+                    <p>Give us a call or send a message. We'll come out, look at the space, and give you an honest quote — no obligations.</p>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="step-number">2</div>
+                    <h3>Plan & Design</h3>
+                    <p>We'll work with you on what you want — layout, materials, timing, budget. No surprises once we start.</p>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="step-number">3</div>
+                    <h3>Build & Maintain</h3>
+                    <p>We get to work. Quality build, clean finish. And if you want ongoing maintenance, we'll keep it looking great.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TESTIMONIALS ===== -->
+    <!-- [PLACEHOLDER] These testimonials are realistic examples. Replace with real client testimonials before going live. -->
+    <section class="testimonials section-padding">
+        <div class="container">
+            <div class="text-center fade-in">
+                <span class="section-label">What Our Clients Say</span>
+                <h2 class="section-heading">Trusted by Local Homeowners</h2>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <blockquote>"They completely transformed our backyard. New retaining wall, fresh turf, and garden beds that actually look like someone planned them. Really happy with the result."</blockquote>
+                    <div class="testimonial-author">Mark T.</div>
+                    <div class="testimonial-location">Blacktown</div>
+                </div>
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <blockquote>"Been using 4Seasons for our regular mowing for over a year now. Always on time, always tidy. No dramas."</blockquote>
+                    <div class="testimonial-author">Sarah K.</div>
+                    <div class="testimonial-location">Penrith</div>
+                </div>
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <blockquote>"Our front yard was a mess — overgrown, dead patches everywhere. They cleared it out, laid new turf, and it looks brilliant. Wish we'd called sooner."</blockquote>
+                    <div class="testimonial-author">James & Lisa M.</div>
+                    <div class="testimonial-location">Seven Hills</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CTA BAND ===== -->
+    <section class="cta-band" id="quote">
+        <div class="container cta-band-content">
+            <h2>Ready to Transform Your Outdoor Space?</h2>
+            <p>Get a free, no-obligation quote. We'll come to you.</p>
+            <a href="tel:+61432949900" class="cta-phone-big">
+                <i data-lucide="phone"></i>
+                0432 949 900
+            </a>
+            <div class="cta-actions">
+                <a href="tel:+61432949900" class="btn btn-primary">
+                    <i data-lucide="phone" style="width:18px;height:18px"></i>
+                    Call Now
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-brand">
+                    <img src="logo.jpeg" alt="4Seasons Landscaping & Mowing">
+                    <p>Quality landscaping and lawn maintenance across Western Sydney. No shortcuts. No patch jobs. Just workmanship you can trust.</p>
+                </div>
+                <div class="footer-contact">
+                    <h4>Get in Touch</h4>
+                    <a href="tel:+61432949900">
+                        <i data-lucide="phone"></i>
+                        0432 949 900
+                    </a>
+                    <a href="https://maps.app.goo.gl/9CpiNUkaQSpAEEUg7" target="_blank" rel="noopener">
+                        <i data-lucide="map-pin"></i>
+                        Western Sydney, NSW
+                    </a>
+                </div>
+                <div class="footer-areas">
+                    <h4>Service Areas</h4>
+                    <ul>
+                        <li>Blacktown</li>
+                        <li>Penrith</li>
+                        <li>Seven Hills</li>
+                        <li>Mount Druitt</li>
+                        <li>Parramatta</li>
+                        <li>Castle Hill</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 4Seasons Landscaping & Mowing. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== SCRIPTS ===== -->
+    <script>
+        // Initialize Lucide icons
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+        });
+
+        // Scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, i) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, i * 80);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
